@@ -26,7 +26,7 @@ def load_optimizer(args, model):
             optimizer, args.epochs, eta_min=0, last_epoch=-1
         )
     elif args.optimizer == "SGD":
-        optimizer = torch.optim.SGD(model.parameters(),lr=0.0,momentum=args.momentum,weight_decay=args.weight_decay)
+        optimizer = torch.optim.SGD(model.parameters(),lr=0.1,momentum=args.momentum,weight_decay=args.weight_decay)
     else:
         raise NotImplementedError
 
