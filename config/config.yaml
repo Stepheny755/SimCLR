@@ -21,6 +21,7 @@ projection_dim: 64 # "[...] to project the representation to a 128-dimensional l
 
 # loss options
 optimizer: "SGD" # "SGD", "Adam" or LARS (experimental)
+scheduler: "cosLR" # "cosLR or stepLR"
 weight_decay: 0.0005 # 1.0e-6 "optimized using LARS [...] and weight decay of 10−6"
 temperature: 0.5 # see appendix B.7.: Optimal temperature under different batch sizes
 momentum: 0.9
