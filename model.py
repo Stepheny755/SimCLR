@@ -25,15 +25,15 @@ def load_optimizer(args, model):
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
             optimizer, args.epochs, eta_min=0, last_epoch=-1
         )
-    elif args.optimizer == "SGD" && args.scheduler == "cosLR":
-        optimizer = torch.optim.SGD(model.parameters(),lr=0.1,momentum=args.momentum,weight_decay=args.weight_decay)
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, args.epochs, eta_min=0, last_epoch=-1
-        )
-    elif args.optimizer == "SGD" && args.scheduler == "stepLR":
+    elif args.optimizer == "SGD" and args.scheduler == "stepLR":
         optimizer = torch.optim.SGD(model.parameters(),lr=0.1,momentum=args.momentum,weight_decay=args.weight_decay)
         scheduler = torch.optim.lr_scheduler.stepLR(
             optimizer, step_size=20, gamma=0.5
+        )
+    elif args.optimizer == "SGD" and args.scheduler == "cosLR":
+        optimizer = torch.optim.SGD(model.parameters(),lr=0.1,momentum=args.momentum,weight_decay=args.weight_decay)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, args.epochs, eta_min=0, last_epoch=-1
         )
     else:
         raise NotImplementedError
