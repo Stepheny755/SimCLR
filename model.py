@@ -27,6 +27,9 @@ def load_optimizer(args, model):
         )
     elif args.optimizer == "SGD":
         optimizer = torch.optim.SGD(model.parameters(),lr=0.1,momentum=args.momentum,weight_decay=args.weight_decay)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, args.epochs, eta_min=0, last_epoch=-1
+        )
     else:
         raise NotImplementedError
 
